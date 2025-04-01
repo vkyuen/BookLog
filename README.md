@@ -15,8 +15,13 @@ A digital tool to help keep track of the tasks one needs to do. Helping with tim
 - [ ] Able to quickly add tasks
 	- [ ] as a brain dump
 	- [ ] while working on another task
-- [ ] Estimated time
-- [ ] 
+- [x] Things needed for a task
+    - [x] Estimated time
+    - [x] Elapsed time
+    - [x] Create date
+    - [x] Finished date
+    - [x] Category
+    - [x] UID
 ## Nice to have
 - [ ] Sort tasks based on
 	- [ ] date completed
