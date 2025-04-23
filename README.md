@@ -22,6 +22,10 @@ A digital tool to help keep track of the tasks one needs to do. Helping with tim
     - [x] Finished date
     - [x] Category
     - [x] UID
+- [ ] Linking relationships
+- [ ] Helper struct
+	- [ ] Keep the database model separate from functions that manipulate and get data.
+- [ ] Inheritance for different types of tasks
 ## Nice to have
 - [ ] Sort tasks based on
 	- [ ] date completed
@@ -36,10 +40,35 @@ A digital tool to help keep track of the tasks one needs to do. Helping with tim
 	- [ ] Number of current tasks
 - [ ] Note section
 - [ ] Project category
+	- [ ] Task
+	- [ ] Book
+	- [ ] Transit
+	- [ ] Note
+	- [ ] Shopping
 - [ ] Brain dump
 	- [ ] Quickly add tasks
 	- [ ] Easy to categorize
 		- [ ] Parts of life
 		- [ ] Priority
-- [ ] Specific date look up
 - [ ] Due date tracker
+- [ ] Recipe
+	- [ ] List of ingredients and quantity
+	- [ ] Note section for direction
+	- [ ] Note section for how you make things
+	- [ ] Scaling factor
+- [ ] Reading
+	- [ ] Number of chapters/pages
+	- [ ] Chapter read
+	- [ ] Type
+		- [ ] Physical book
+		- [ ] e Book
+		- [ ] Audio book
+	- [ ] Date started
+	- [ ] Date finished
+- [ ] Note
+	- [ ] Time the note is made
+	- [ ] Textbox to store the note
+- [ ] Shopping
+	- [ ] List of items
+	- [ ] Running low, out of
+	- [ ] Where is the opened item?
