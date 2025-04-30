@@ -1,74 +1,58 @@
-# Time Log
 
-## What am I building?
-A digital tool to help keep track of the tasks one needs to do. Helping with time blindness by having a way to keep track of how long a task is taking, and allowing users a way to easily see how long similarly named tasks took. Over time, this could give a good estimation of how long certain tasks take, making it easier to plan things out.  If memory is an issue, it is possible to follow the route as the Bullet Journal method, where the app is a way to temporarily hold things for people. Over time (maybe a set number of days) the item will be deleted. The idea is to have a digital temporary space to save things, then make time to put it into the the planner or journal as needed. Bonus points because it will be a good way for the items to be refreshed or cleaned up over time. 
-## Must have
-- [ ] Keep track of tasks
-	- [ ] Master list vs current list?
-- [ ] A way to see how many sessions for a task has happened
-- [ ] A view that will group tasks that have the same name
-- [ ] A view looking at things done sort by date
-	- [ ] The different sessions that happened
-- [ ] Elapsed time on a task
-- [ ] If a task is done
-- [ ] Easy to input task
-- [ ] Able to quickly add tasks
-	- [ ] as a brain dump
-	- [ ] while working on another task
-- [x] Things needed for a task
-    - [x] Estimated time
-    - [x] Elapsed time
-    - [x] Create date
-    - [x] Finished date
-    - [x] Category
-    - [x] UID
-- [ ] Linking relationships
-- [ ] Helper struct
-	- [ ] Keep the database model separate from functions that manipulate and get data.
-- [ ] Inheritance for different types of tasks
-## Nice to have
-- [ ] Sort tasks based on
-	- [ ] date completed
-	- [ ] priority
-	- [ ] category
-		- [ ] Makse life?
-- [ ] Average time for similar tasks
-- [ ] Top # tasks
-- [ ] Settings options
-	- [ ] Customize categories
-	- [ ] Colors used
-	- [ ] Number of current tasks
-- [ ] Note section
-- [ ] Project category
-	- [ ] Task
-	- [ ] Book
-	- [ ] Transit
-	- [ ] Note
-	- [ ] Shopping
-- [ ] Brain dump
-	- [ ] Quickly add tasks
-	- [ ] Easy to categorize
-		- [ ] Parts of life
-		- [ ] Priority
-- [ ] Due date tracker
-- [ ] Recipe
-	- [ ] List of ingredients and quantity
-	- [ ] Note section for direction
-	- [ ] Note section for how you make things
-	- [ ] Scaling factor
+Decided to change the whole thing a little. Still keeping track of things, but decided to put a twist to it. There are a few things I want to be able to track. The idea of this is that it will be a tool to help with a planner. A way to quickly mark or keep track of how long it actually takes to do something. 
+Most trackers, especially reading trackers, will note when you start and finish a book, but they don't often mention how long someone was reading for. Yes, with this app, the user is responsible to pushing the buttons, but it gives them an option to get a better idea of exactly how much time was spent reading. And for some works, it would be nice to be able to make quick notes about the story, just in case it is a longer story, or a book that someone has to keep pausing. 
+Starting this project off with the to-do part because I feel like it would be a good basic class. Then I plan on adding the transit and book reading parts at the end. 
+# Things I want to be able to track
+- [ ] Commute
+    - [ ] Car
+    - [ ] Bus
 - [ ] Reading
-	- [ ] Number of chapters/pages
-	- [ ] Chapter read
-	- [ ] Type
-		- [ ] Physical book
-		- [ ] e Book
-		- [ ] Audio book
-	- [ ] Date started
-	- [ ] Date finished
-- [ ] Note
-	- [ ] Time the note is made
-	- [ ] Textbox to store the note
-- [ ] Shopping
-	- [ ] List of items
-	- [ ] Running low, out of
-	- [ ] Where is the opened item?
+    - [ ] Books
+    - [ ] Papers
+- [ ] To-do
+    - [ ] Chores
+    - [ ] Assignments
+    - [ ] Shopping
+# What the app should be able to do
+- [ ] Add things
+- [ ] Have an icon to show what it is
+- [ ] Search bar
+- [ ] Able to see archived items
+    - [ ] Would be nice to be able to sort by 
+        - [ ] Date added
+        - [ ] Archived vs. active
+# Database planning
+- [ ] Basic
+    - [ ] Name
+    - [ ] Date added
+    - [ ] Date completed
+    - [ ] Last modified
+    - [ ] Elapsed Time
+    - [ ] Estimated time
+    - [ ] Image
+    - [ ] Notes
+- [ ] To-do
+    - [ ] Type of to-do
+        - Chores
+        - Assignments
+- [ ] Commute
+    - [ ] Mode of transportation
+        - Car
+        -  Bus
+- [ ] Reading
+    - [ ] Mode of reading
+        - Books
+        - Papers
+    - [ ] Type of reading
+        - Leisure
+        - Book club
+        - Academic
+
+# Implementation idea
+- [ ] Start with a simple to-do tracker
+- [ ] Detailed edit of item
+- [ ] Add timer element
+- [ ] Search bar
+- [ ] Specific view for active items vs. archived items
+- [ ] Database inheritance for other categories
+- [ ] Detailed view for other categories
