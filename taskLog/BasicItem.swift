@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+@Model
 class BasicItem{
     var name: String
     var dateAdded: Date

@@ -23,12 +23,12 @@ Starting this project off with the to-do part because I feel like it would be a 
         - [ ] Archived vs. active
 # Database planning
 - [ ] Basic
-    - [ ] Name
-    - [ ] Date added
-    - [ ] Date completed
-    - [ ] Last modified
-    - [ ] Elapsed Time
-    - [ ] Estimated time
+    - [x] Name
+    - [x] Date added
+    - [x] Date completed
+    - [x] Last modified
+    - [x] Elapsed Time
+    - [x] Estimated time
     - [ ] Image
     - [ ] Notes
 - [ ] To-do
@@ -52,7 +52,12 @@ Starting this project off with the to-do part because I feel like it would be a 
 - [ ] Start with a simple to-do tracker
 - [ ] Detailed edit of item
 - [ ] Add timer element
+- [ ] Link basic to event database
 - [ ] Search bar
 - [ ] Specific view for active items vs. archived items
 - [ ] Database inheritance for other categories
 - [ ] Detailed view for other categories
+- [ ] Add a note section
+
+# References
+Used YouTube Tutorial from Paul Hudson for basic Swift Data set up and usage
