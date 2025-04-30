@@ -10,15 +10,33 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
+    @Query var basicItems: [BasicItem]
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            List{
+                ForEach(basicItems) {basicItem in
+                    VStack(alignment: .leading){
+                        Text(basicItem.name)
+                            .font(.headline)
+                        Text(basicItem.dateAdded.formatted(date: .long, time: .shortened))
+                    }
+                }
+            }
+            .navigationTitle("Items")
+            .toolbar{
+                Button("Add Samples", action: addSamples)
+            }
         }
-        .padding()
+    }
+    func addSamples(){
+        let first = BasicItem(name: "Create class")
+        let second = BasicItem(name: "Add things")
+        let third = BasicItem(name: "Display")
+        
+        modelContext.insert(first)
+        modelContext.insert(second)
+        modelContext.insert(third)
     }
 }
 
