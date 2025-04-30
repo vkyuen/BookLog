@@ -22,6 +22,7 @@ struct ContentView: View {
                         Text(basicItem.dateAdded.formatted(date: .long, time: .shortened))
                     }
                 }
+                .onDelete(perform: deleteItem)
             }
             .navigationTitle("Items")
             .toolbar{
@@ -29,6 +30,7 @@ struct ContentView: View {
             }
         }
     }
+    
     func addSamples(){
         let first = BasicItem(name: "Create class")
         let second = BasicItem(name: "Add things")
@@ -37,6 +39,13 @@ struct ContentView: View {
         modelContext.insert(first)
         modelContext.insert(second)
         modelContext.insert(third)
+    }
+    
+    func deleteItem(_ indexSet: IndexSet){
+        for index in indexSet{
+            let item = basicItems[index]
+            modelContext.delete(item)
+        }
     }
 }
 
