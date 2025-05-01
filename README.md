@@ -65,5 +65,54 @@ Starting this project off with the to-do part because I feel like it would be a 
 - Need to be sure of schema first. Since there are changes I want to make, I am going to change things around a little. 
 - Scrapping the current model, and going to see if I can create a to-do item, and start with that. Once the timer and other things are working, then bring in the inheritance and go from there. 
 
+# Project overwrite (again)
+I think the book idea and travel tracker to be the most interesting parts of the project. Trying to make this one project do so many things is kind of silly. Between the books and trip tracker, I think the book tracker is a little more interesting. Yes, another restart, but hopefully with some of the things I've learned from the previous 2 iterations will help. For now, this will document all the changes I'm going over, and maybe for the final version, I will clean all of this up.
+# Reading Material model
+- [ ] Name
+    - [ ] Date added
+    - [ ] Author
+    - [ ] Date completed
+    - [ ] Last modified
+    - [ ] Elapsed Time
+    - [ ] Number of sessions
+    - [ ] Number of chapters
+    - [ ] Number of words
+    - [ ] Notes
+    - [ ] Source
+        - Purchased
+        - Borrowed
+        - Library
+    - [ ] Format
+        - Physical
+        - e-book
+        - audiobook
+    - [ ] Type of reading
+        - Leisure
+        - Book club
+        - Academic
+    - [ ] Status
+        - tbr
+        - reading / in-progress
+        - done
+## Things that can be edited
+- [ ] Date last read
+- [ ] Rating
+- [ ] Number of chapters
+- [ ] 
+## Views
+- [ ] Editing the book
+- [ ] List of all entries
+    - [ ] tbr
+    - [ ] reading
+    - [ ] done
+# Steps to work on
+- [ ] Define the model
+- [ ] Display the items
+- [ ] Delete things
+- [ ] Edit
+- [ ] Track time
+- [ ] Searchable
+- [ ] Note section
+
 # References
 Used YouTube Tutorial from Paul Hudson for basic Swift Data set up and usage
