@@ -16,15 +16,18 @@ struct ContentView: View {
         NavigationStack{
             List{
                 ForEach(basicItems) {basicItem in
-                    VStack(alignment: .leading){
-                        Text(basicItem.name)
-                            .font(.headline)
-                        Text(basicItem.dateAdded.formatted(date: .long, time: .shortened))
+                    NavigationLink(value: basicItem){
+                        VStack(alignment: .leading){
+                            Text(basicItem.name)
+                                .font(.headline)
+                            Text(basicItem.dateAdded.formatted(date: .long, time: .shortened))
+                        }
                     }
                 }
                 .onDelete(perform: deleteItem)
             }
             .navigationTitle("Items")
+            .navigationDestination(for: BasicItem.self, destination: EditItemView.init)
             .toolbar{
                 Button("Add Samples", action: addSamples)
             }

@@ -29,6 +29,7 @@ Starting this project off with the to-do part because I feel like it would be a 
     - [x] Last modified
     - [x] Elapsed Time
     - [x] Estimated time
+    - [ ] Type
     - [ ] Image
     - [ ] Notes
 - [ ] To-do
@@ -53,11 +54,16 @@ Starting this project off with the to-do part because I feel like it would be a 
 - [ ] Detailed edit of item
 - [ ] Add timer element
 - [ ] Link basic to event database
+- [ ] Image on the left side to show type/status
 - [ ] Search bar
 - [ ] Specific view for active items vs. archived items
 - [ ] Database inheritance for other categories
 - [ ] Detailed view for other categories
 - [ ] Add a note section
+
+# Implementation notes
+- Need to be sure of schema first. Since there are changes I want to make, I am going to change things around a little. 
+- Scrapping the current model, and going to see if I can create a to-do item, and start with that. Once the timer and other things are working, then bring in the inheritance and go from there. 
 
 # References
 Used YouTube Tutorial from Paul Hudson for basic Swift Data set up and usage

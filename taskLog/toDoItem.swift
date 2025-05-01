@@ -1,28 +1,30 @@
 //
-//  BasicItem.swift
+//  toDoItem.swift
 //  taskLog
 //
-//  Created by Veronica Yuen on 4/29/25.
+//  Created by Veronica Yuen on 5/1/25.
 //
 
 import Foundation
 import SwiftData
 
-@Model
-class BasicItem{
+class toDoItem{
     var name: String
     var dateAdded: Date
     var dateCompleted: Date?
     var lastModified: Date
-    var estimatedTime: Int?
     var elapsedTime: Double
+    var status: Int
+    // status 0 = entered
+    // status 1 = in-progress
+    // status 2 = done
     
-    init(name: String = "", dateAdded: Date = .now, dateCompleted: Date? = nil, lastModified: Date = .now, estimatedTime: Int? = nil, elapsedTime: Double = 0, type: Int = 0) {
+    init(name: String = "", dateAdded: Date = .now, dateCompleted: Date? = nil, lastModified: Date = .now, elapsedTime: Double = 0, status: Int = 0) {
         self.name = name
         self.dateAdded = dateAdded
         self.dateCompleted = dateCompleted
         self.lastModified = lastModified
-        self.estimatedTime = estimatedTime
         self.elapsedTime = elapsedTime
+        self.status = status
     }
 }
