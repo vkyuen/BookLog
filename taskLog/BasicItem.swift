@@ -16,13 +16,15 @@ class BasicItem{
     var lastModified: Date
     var estimatedTime: Int?
     var elapsedTime: Double
+    var type: Int
     
-    init(name: String = "", dateAdded: Date = .now, dateCompleted: Date? = nil, lastModified: Date = .now, estimatedTime: Int? = nil, elapsedTime: Double = 0) {
+    init(name: String = "", dateAdded: Date = .now, dateCompleted: Date? = nil, lastModified: Date = .now, estimatedTime: Int? = nil, elapsedTime: Double = 0, type: Int = 0) {
         self.name = name
         self.dateAdded = dateAdded
         self.dateCompleted = dateCompleted
         self.lastModified = lastModified
         self.estimatedTime = estimatedTime
         self.elapsedTime = elapsedTime
+        self.type = type
     }
 }
