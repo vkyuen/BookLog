@@ -106,7 +106,7 @@ I think the book idea and travel tracker to be the most interesting parts of the
 - [x] Define the model
 - [x] Display the items
 - [x] Add items
-- [ ] Delete things
+- [x] Delete things
 - [ ] Edit
 - [ ] Track time
 - [ ] Searchable

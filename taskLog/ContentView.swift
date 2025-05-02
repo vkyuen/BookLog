@@ -22,6 +22,7 @@ struct ContentView: View {
                         Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
                     }
                 }
+                .onDelete(perform: deleteReadingMaterial)
             }
             .navigationTitle("Reading List")
             .toolbar{
@@ -37,6 +38,12 @@ struct ContentView: View {
         modelContext.insert(first)
         modelContext.insert(second)
         modelContext.insert(third)
+    }
+    func deleteReadingMaterial(_ indexSet: IndexSet){
+        for index in indexSet {
+            let readingMaterial = readingMaterials[index]
+            modelContext.delete(readingMaterial)
+        }
     }
 }
 
