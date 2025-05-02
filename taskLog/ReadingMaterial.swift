@@ -12,22 +12,22 @@ import SwiftData
 class ReadingMaterial{
     var title: String
     var dateAdded: Date
-    var author: String?
+    var author: String
     var dateCompleted: Date?
     var elapsedTime: Int
-    var chapter: Int?
-    var words: Int?
-    var source: Int?
-    var format: Int?
-    var typeOfReading: Int?
-    var readingStatus: Int?
+    var chapter: Int
+    var words: Int
+    var source: Int
+    var format: Int
+    var typeOfReading: Int
+    var readingStatus: Int
     
     // source: 0 = purchased, 1 = borrowed, 2 = library
     // format: 0 = physical, 1 = e-book, 2 = audiobook
     // typeOfReading: 0 = leisure, 1 = book club, 2 = academic
     // readingStatus: 0 = tbr, 1 = reading, 2 = done
     
-    init(title: String  = "", dateAdded: Date = .now, author: String? = nil, dateCompleted: Date? = nil, elapsedTime: Int = 0, chapter: Int? = nil, words: Int? = nil, source: Int? = nil, format: Int? = nil, typeOfReading: Int? = nil, readingStatus: Int? = nil) {
+    init(title: String  = "", dateAdded: Date = .now, author: String = "", dateCompleted: Date? = nil, elapsedTime: Int = 0, chapter: Int = 0, words: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0) {
         self.title = title
         self.dateAdded = dateAdded
         self.author = author
