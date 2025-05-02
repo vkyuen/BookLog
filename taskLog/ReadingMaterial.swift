@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class ReadingMaterial{
-    var name: String
+    var title: String
     var dateAdded: Date
     var author: String?
     var dateCompleted: Date?
@@ -27,8 +27,8 @@ class ReadingMaterial{
     // typeOfReading: 0 = leisure, 1 = book club, 2 = academic
     // readingStatus: 0 = tbr, 1 = reading, 2 = done
     
-    init(name: String  = "", dateAdded: Date = .now, author: String? = nil, dateCompleted: Date? = nil, elapsedTime: Int = 0, chapter: Int? = nil, words: Int? = nil, source: Int? = nil, format: Int? = nil, typeOfReading: Int? = nil, readingStatus: Int? = nil) {
-        self.name = name
+    init(title: String  = "", dateAdded: Date = .now, author: String? = nil, dateCompleted: Date? = nil, elapsedTime: Int = 0, chapter: Int? = nil, words: Int? = nil, source: Int? = nil, format: Int? = nil, typeOfReading: Int? = nil, readingStatus: Int? = nil) {
+        self.title = title
         self.dateAdded = dateAdded
         self.author = author
         self.dateCompleted = dateCompleted

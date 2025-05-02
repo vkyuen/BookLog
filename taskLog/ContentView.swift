@@ -15,7 +15,7 @@ struct ContentView: View {
             List{
                 ForEach(readingMaterials){readingMaterial in
                     VStack(alignment: .leading){
-                        Text(readingMaterial.name)
+                        Text(readingMaterial.title)
                             .font(.headline)
                         Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
                     }
