@@ -96,7 +96,6 @@ I think the book idea and travel tracker to be the most interesting parts of the
 - [ ] Date last read
 - [ ] Rating
 - [ ] Number of chapters
-- [ ] 
 ## Views
 - [ ] Editing the book
 - [ ] List of all entries
@@ -104,8 +103,9 @@ I think the book idea and travel tracker to be the most interesting parts of the
     - [ ] reading
     - [ ] done
 # Steps to work on
-- [ ] Define the model
-- [ ] Display the items
+- [x] Define the model
+- [x] Display the items
+- [x] Add items
 - [ ] Delete things
 - [ ] Edit
 - [ ] Track time
