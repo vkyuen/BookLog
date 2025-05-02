@@ -15,6 +15,7 @@ struct EditReadingMaterialView: View {
         Form {
             TextField("Title", text: $readingMaterial.title)
             TextField("Author", text: $readingMaterial.author)
+            
         }
     }
 }
