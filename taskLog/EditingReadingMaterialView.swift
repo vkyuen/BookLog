@@ -1,5 +1,5 @@
 //
-//  EditReadingMaterialView.swift
+//  EditingReadingMaterialView.swift
 //  taskLog
 //
 //  Created by Veronica Yuen on 5/1/25.

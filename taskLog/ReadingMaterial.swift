@@ -13,8 +13,8 @@ class ReadingMaterial{
     var title: String
     var dateAdded: Date
     var author: String
-    var dateStarted: Date?
-    var dateCompleted: Date?
+    var dateStarted: Date
+    var dateCompleted: Date
     var elapsedTime: Int
     var chapter: Int
     var words: Int
@@ -28,7 +28,7 @@ class ReadingMaterial{
     // typeOfReading: 0 = leisure, 1 = book club, 2 = academic
     // readingStatus: 0 = tbr, 1 = reading, 2 = done
     
-    init(title: String  = "", dateAdded: Date = .now, author: String = "", dateStarted: Date? = nil, dateCompleted: Date? = nil, elapsedTime: Int = 0, chapter: Int = 0, words: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0) {
+    init(title: String  = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, elapsedTime: Int = 0, chapter: Int = 0, words: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0) {
         self.title = title
         self.dateAdded = dateAdded
         self.author = author
@@ -43,3 +43,4 @@ class ReadingMaterial{
         self.readingStatus = readingStatus
     }
 }
+
