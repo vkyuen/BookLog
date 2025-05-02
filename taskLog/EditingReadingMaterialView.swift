@@ -13,9 +13,21 @@ struct EditReadingMaterialView: View {
     
     var body: some View {
         Form {
+            // general information
             TextField("Title", text: $readingMaterial.title)
             TextField("Author", text: $readingMaterial.author)
+            // Number of chapters
+            // number of words
+            // source
+            // format
             
+            // My own tracker
+            // type of reading
+            // date added
+            // date started
+            // date ended
+            // Elapsed time
+            // status
         }
     }
 }
