@@ -10,6 +10,8 @@ import SwiftData
 
 struct ContentView: View {
     @Query var readingMaterials: [ReadingMaterial]
+    @Environment(\.modelContext) var modelContext
+    
     var body: some View {
         NavigationStack{
             List{
@@ -22,7 +24,19 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Reading List")
+            .toolbar{
+                Button("Add Samples", action: addSamples)
+            }
         }
+    }
+    func addSamples(){
+        let first = ReadingMaterial(title: "First Book")
+        let second = ReadingMaterial(title: "Second Book")
+        let third = ReadingMaterial(title: "Third Book")
+        
+        modelContext.insert(first)
+        modelContext.insert(second)
+        modelContext.insert(third)
     }
 }
 
