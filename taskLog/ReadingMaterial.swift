@@ -8,5 +8,5 @@
 import Foundation
 
 class ReadingMaterial{
-    
+    var name: String
 }
