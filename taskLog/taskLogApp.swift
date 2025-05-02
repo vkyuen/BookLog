@@ -14,5 +14,6 @@ struct taskLogApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: ReadingMaterial.self)
     }
 }

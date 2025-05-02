@@ -9,14 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Query var readingMaterials: [ReadingMaterial]
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            List{
+                ForEach(readingMaterials){readingMaterial in
+                    VStack(alignment: .leading){
+                        Text(readingMaterial.name)
+                            .font(.headline)
+                        Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                    }
+                }
+            }
+            .navigationTitle("Reading List")
         }
-        .padding()
     }
 }
 

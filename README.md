@@ -72,9 +72,7 @@ I think the book idea and travel tracker to be the most interesting parts of the
 - [ ] Date added
 - [ ] Author
 - [ ] Date completed
-- [ ] Last modified
 - [ ] Elapsed Time
-- [ ] Number of sessions
 - [ ] Number of chapters
 - [ ] Number of words
 - [ ] Notes
