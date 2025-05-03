@@ -1,8 +1,8 @@
 //
-//  EditingReadingMaterialView.swift
+//  EditReadingMaterialView.swift
 //  taskLog
 //
-//  Created by Veronica Yuen on 5/1/25.
+//  Created by Veronica Yuen on 5/2/25.
 //
 
 import SwiftUI
@@ -17,6 +17,11 @@ struct EditReadingMaterialView: View {
             TextField("Title", text: $readingMaterial.title)
             TextField("Author", text: $readingMaterial.author)
             // Number of chapters
+            Picker("Number of chapters", selection: $readingMaterial.chapter){
+                ForEach(0 ..< 100){
+                    Text("\($0) chapter")
+                }
+            }
             // number of words
             // source
             // format

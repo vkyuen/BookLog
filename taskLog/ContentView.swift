@@ -16,10 +16,12 @@ struct ContentView: View {
         NavigationStack{
             List{
                 ForEach(readingMaterials){readingMaterial in
-                    VStack(alignment: .leading){
-                        Text(readingMaterial.title)
-                            .font(.headline)
-                        Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                    NavigationLink(value: readingMaterial){
+                        VStack(alignment: .leading){
+                            Text(readingMaterial.title)
+                                .font(.headline)
+                            Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                        }
                     }
                 }
                 .onDelete(perform: deleteReadingMaterial)
@@ -46,7 +48,6 @@ struct ContentView: View {
         }
     }
 }
-
 #Preview {
     ContentView()
 }

@@ -2,7 +2,7 @@
 //  ReadingMaterial.swift
 //  taskLog
 //
-//  Created by Veronica Yuen on 5/1/25.
+//  Created by Veronica Yuen on 5/2/25.
 //
 
 import Foundation
@@ -43,4 +43,5 @@ class ReadingMaterial{
         self.readingStatus = readingStatus
     }
 }
+
 
