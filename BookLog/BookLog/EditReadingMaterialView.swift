@@ -13,9 +13,19 @@ struct EditReadingMaterialView: View {
     
     var body: some View {
         Form{
-            TextField("Title", text: $readingMaterial.title)
-            TextField("Autor", text: $readingMaterial.author)
-            Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+            Section(header: Text("Information")){
+                TextField("Title", text: $readingMaterial.title)
+                TextField("Autor", text: $readingMaterial.author)
+                Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                Stepper("Current number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter, in: 1...200)
+                
+            }
+            Section(header: Text("Reading format")){
+                
+            }
+            Section(header: Text("Dates")){
+                
+            }
         }
     }
 }
