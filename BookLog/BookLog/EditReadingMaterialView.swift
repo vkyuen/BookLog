@@ -12,7 +12,11 @@ struct EditReadingMaterialView: View {
     @Bindable var readingMaterial: ReadingMaterial
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form{
+            TextField("Title", text: $readingMaterial.title)
+            TextField("Autor", text: $readingMaterial.author)
+            Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+        }
     }
 }
 

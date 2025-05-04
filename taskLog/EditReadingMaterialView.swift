@@ -38,13 +38,5 @@ struct EditReadingMaterialView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: ReadingMaterial.self, configurations: config)
-        let example = ReadingMaterial(title: "Example Book")
-        return EditReadingMaterialView(readingMaterial: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
+     
 }
