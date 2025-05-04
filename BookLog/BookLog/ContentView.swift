@@ -12,8 +12,10 @@ struct ContentView: View {
     @Query var readingMaterials: [ReadingMaterial]
     @Environment(\.modelContext) var modelContext
     
+    @State private var path = [ReadingMaterial]()
+    
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             List{
                 ForEach(readingMaterials){readingMaterial in
                     NavigationLink(value: readingMaterial){
@@ -29,24 +31,20 @@ struct ContentView: View {
             .navigationTitle("Book log")
             .navigationDestination(for: ReadingMaterial.self, destination: EditReadingMaterialView.init)
             .toolbar{
-                Button("Add Samples", action: addSamples)
+                Button("Add material", systemImage: "plus", action: addReadingMaterial)
             }
         }
-    }
-    func addSamples(){
-        let first = ReadingMaterial(title: "First Book")
-        let second = ReadingMaterial(title: "Second Book")
-        let third = ReadingMaterial(title: "Third Book")
-        
-        modelContext.insert(first)
-        modelContext.insert(second)
-        modelContext.insert(third)
     }
     func deleteReadingMaterial(_ indexSet: IndexSet){
         for index in indexSet {
             let readingMaterial = readingMaterials[index]
             modelContext.delete(readingMaterial)
         }
+    }
+    func addReadingMaterial(){
+        let readingMaterial = ReadingMaterial()
+        modelContext.insert(readingMaterial)
+        path = [readingMaterial]
     }
 }
 

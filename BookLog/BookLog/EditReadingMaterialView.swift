@@ -23,7 +23,7 @@ struct EditReadingMaterialView: View {
             Section(header: Text("Reading format")){
                 Picker("Source", selection: $readingMaterial.source){
                     Text("Owned").tag(0)
-                    Text("Friend").tag(1)
+                    Text("Borrowed from Friend").tag(1)
                     Text("Library").tag(2)
                 }
                 Picker("Format", selection: $readingMaterial.format){
