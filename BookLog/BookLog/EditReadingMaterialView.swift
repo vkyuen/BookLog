@@ -16,17 +16,43 @@ struct EditReadingMaterialView: View {
             Section(header: Text("Information")){
                 TextField("Title", text: $readingMaterial.title)
                 TextField("Autor", text: $readingMaterial.author)
-                Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
-                Stepper("Current number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter, in: 1...200)
+                
+                Stepper("Current number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter)
                 
             }
             Section(header: Text("Reading format")){
-                
+                Picker("Source", selection: $readingMaterial.source){
+                    Text("Owned").tag(0)
+                    Text("Friend").tag(1)
+                    Text("Library").tag(2)
+                }
+                Picker("Format", selection: $readingMaterial.format){
+                    Text("Physical").tag(0)
+                    Text("E-book").tag(1)
+                    Text("Audiobook").tag(2)
+                }
+                Picker("Type of reading", selection: $readingMaterial.typeOfReading){
+                    Text("Leisure").tag(0)
+                    Text("Book club").tag(1)
+                    Text("Academic").tag(2)
+                }
+                Picker("Reading status", selection: $readingMaterial.readingStatus){
+                    Text("TBR").tag(0)
+                    Text("Reading").tag(1)
+                    Text("Finished").tag(2)
+                }
             }
             Section(header: Text("Dates")){
-                
+                Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                DatePicker("Date started", selection: $readingMaterial.dateStarted)
+                DatePicker("Date finished", selection: $readingMaterial.dateCompleted)
+            }
+            Section(header: Text("Time")){
+                Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime)
             }
         }
+        .navigationTitle("Edit Book")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

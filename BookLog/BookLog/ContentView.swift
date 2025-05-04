@@ -27,6 +27,7 @@ struct ContentView: View {
                 .onDelete(perform: deleteReadingMaterial)
             }
             .navigationTitle("Book log")
+            .navigationDestination(for: ReadingMaterial.self, destination: EditReadingMaterialView.init)
             .toolbar{
                 Button("Add Samples", action: addSamples)
             }

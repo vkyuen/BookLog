@@ -23,6 +23,11 @@ class ReadingMaterial{
     var typeOfReading: Int
     var readingStatus: Int
     
+    // source: 0 = purchased, 1 = borrowed, 2 = library
+    // format: 0 = physical, 1 = e-book, 2 = audiobook
+    // typeOfReading: 0 = leisure, 1 = book club, 2 = academic
+    // readingStatus: 0 = tbr, 1 = reading, 2 = done
+    
     init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0) {
         self.title = title
         self.dateAdded = dateAdded
