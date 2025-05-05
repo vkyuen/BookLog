@@ -11,6 +11,8 @@ import SwiftData
 struct EditReadingMaterialView: View {
     @Bindable var readingMaterial: ReadingMaterial
     
+    @State private var newNote = ""
+    
     var body: some View {
         Form{
             Section(header: Text("Information")){
@@ -50,10 +52,32 @@ struct EditReadingMaterialView: View {
             Section(header: Text("Time")){
                 Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime)
             }
+            Section("Notes"){
+                ForEach(readingMaterial.notes){ note in
+                    Text(note.note)
+                }
+                HStack {
+                    TextField("Add a note for \(readingMaterial.title)", text: $newNote)
+                    Button("Add", action: addNote)
+                }
+            }
         }
-        .navigationTitle("Edit Book")
+        .navigationTitle(readingMaterial.title)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    func addNote(){
+        guard newNote.isEmpty == false
+        else{
+            return
+        }
+        withAnimation{
+            let note = Note(note: newNote)
+            readingMaterial.notes.append(note)
+            newNote = ""
+        }
+    }
+    
 }
 
 #Preview {

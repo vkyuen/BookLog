@@ -22,6 +22,7 @@ class ReadingMaterial{
     var format: Int
     var typeOfReading: Int
     var readingStatus: Int
+    var notes = [Note]()
     
     // source: 0 = purchased, 1 = borrowed, 2 = library
     // format: 0 = physical, 1 = e-book, 2 = audiobook
