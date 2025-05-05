@@ -16,18 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            List{
-                ForEach(readingMaterials){readingMaterial in
-                    NavigationLink(value: readingMaterial){
-                        VStack(alignment: .leading){
-                            Text(readingMaterial.title)
-                                .font(.headline)
-                            Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
-                        }
-                    }
-                }
-                .onDelete(perform: deleteReadingMaterial)
-            }
+            ReadingMaterialListingView()
             .navigationTitle("Book log")
             .navigationDestination(for: ReadingMaterial.self, destination: EditReadingMaterialView.init)
             .toolbar{
@@ -35,12 +24,7 @@ struct ContentView: View {
             }
         }
     }
-    func deleteReadingMaterial(_ indexSet: IndexSet){
-        for index in indexSet {
-            let readingMaterial = readingMaterials[index]
-            modelContext.delete(readingMaterial)
-        }
-    }
+   
     func addReadingMaterial(){
         let readingMaterial = ReadingMaterial()
         modelContext.insert(readingMaterial)
