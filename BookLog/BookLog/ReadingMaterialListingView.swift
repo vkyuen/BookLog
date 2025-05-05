@@ -26,6 +26,11 @@ struct ReadingMaterialListingView: View {
             .onDelete(perform: deleteReadingMaterial)
         }
     }
+    
+    init(sort: SortDescriptor<ReadingMaterial>){
+        _readingMaterials = Query(sort: [sort])
+    }
+    
     func deleteReadingMaterial(_ indexSet: IndexSet){
         for index in indexSet {
             let readingMaterial = readingMaterials[index]
@@ -35,5 +40,5 @@ struct ReadingMaterialListingView: View {
 }
 
 #Preview {
-    ReadingMaterialListingView()
+    ReadingMaterialListingView(sort: SortDescriptor(\ReadingMaterial.title))
 }
