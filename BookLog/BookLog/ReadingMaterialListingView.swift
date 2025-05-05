@@ -27,8 +27,14 @@ struct ReadingMaterialListingView: View {
         }
     }
     
-    init(sort: SortDescriptor<ReadingMaterial>){
-        _readingMaterials = Query(sort: [sort])
+    init(sort: SortDescriptor<ReadingMaterial>, searchString: String){
+        _readingMaterials = Query(filter: #Predicate{
+            if searchString.isEmpty{
+                return true
+            } else {
+                return $0.title.localizedStandardContains(searchString)
+            }
+        }, sort: [sort])
     }
     
     func deleteReadingMaterial(_ indexSet: IndexSet){
@@ -40,5 +46,5 @@ struct ReadingMaterialListingView: View {
 }
 
 #Preview {
-    ReadingMaterialListingView(sort: SortDescriptor(\ReadingMaterial.title))
+    ReadingMaterialListingView(sort: SortDescriptor(\ReadingMaterial.title), searchString: "")
 }

@@ -14,12 +14,14 @@ struct ContentView: View {
     
     @State private var path = [ReadingMaterial]()
     @State private var sortOrder = SortDescriptor(\ReadingMaterial.title)
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack(path: $path){
-            ReadingMaterialListingView(sort: sortOrder)
+            ReadingMaterialListingView(sort: sortOrder, searchString: searchText)
             .navigationTitle("Book log")
             .navigationDestination(for: ReadingMaterial.self, destination: EditReadingMaterialView.init)
+            .searchable(text: $searchText)
             .toolbar{
                 Button("Add material", systemImage: "plus", action: addReadingMaterial)
                 Menu("Sort", systemImage: "line.horizontal.3.decrease"){
