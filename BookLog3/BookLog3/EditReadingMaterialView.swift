@@ -56,8 +56,12 @@ struct EditReadingMaterialView: View {
             }
             Section(isExpanded: $readingMaterial.isDateExpanded){
                 Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
-                Text("Date started: " + readingMaterial.dateStarted.formatted(date: .long, time: .shortened))
-                Text("Date finished: " + readingMaterial.dateCompleted.formatted(date: .long, time: .shortened))
+                if readingMaterial.readingStatus >= 1{
+                    Text("Date started: " + readingMaterial.dateStarted.formatted(date: .long, time: .shortened))
+                }
+                if readingMaterial.readingStatus >= 2{
+                    Text("Date finished: " + readingMaterial.dateCompleted.formatted(date: .long, time: .shortened))
+                }
                 Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime)
                 if readingMaterial.readingStatus == 1{
                     Stepper("Current chapter: \(readingMaterial.currentChapter)", value: $readingMaterial.currentChapter, in: 0...readingMaterial.numberOfChapter)
