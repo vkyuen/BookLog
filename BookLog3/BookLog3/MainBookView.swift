@@ -28,7 +28,6 @@ struct MainBookView: View {
                     Picker("Sort", selection: $sortOrder){
                         Text("Title").tag(SortDescriptor(\ReadingMaterial.title))
                         Text("Reading Status").tag(SortDescriptor(\ReadingMaterial.readingStatus))
-                        Text("Type of reading").tag(SortDescriptor(\ReadingMaterial.typeOfReading))
                         Text("Date added").tag(SortDescriptor(\ReadingMaterial.dateAdded))
                     }
                     .pickerStyle(.inline)

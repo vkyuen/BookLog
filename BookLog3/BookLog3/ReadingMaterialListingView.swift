@@ -22,7 +22,7 @@ struct ReadingMaterialListingView: View {
                             VStack(alignment: .leading){
                                 Text(readingMaterial.title)
                                     .font(.headline)
-                                Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                                Text(getDate(book: readingMaterial))
                             }
                     }
                 }
@@ -58,9 +58,9 @@ struct ReadingMaterialListingView: View {
     func getDate(book: ReadingMaterial)
     -> String{
         switch book.readingStatus{
-        case 0: return "Added on: \(book.dateAdded)"
-        case 1: return "Started on: \(book.dateStarted)"
-        case 2: return"Finished on: \(book.dateCompleted)"
+        case 0: return "Added on: \(book.dateAdded.formatted(date: .numeric, time: .shortened))"
+        case 1: return "Started on: \(book.dateStarted.formatted(date: .numeric, time: .shortened))"
+        case 2: return"Finished on: \(book.dateCompleted.formatted(date: .numeric, time: .shortened))"
         default: return "What am I doing here?"
         }
     }
