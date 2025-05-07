@@ -30,24 +30,31 @@ struct EditReadingMaterialView: View {
             Section(isExpanded: $readingMaterial.isFormatExpanded){
                 Picker("Source", selection: $readingMaterial.source){
                     Text("Owned").tag(0)
-                    Text("Borrowed from Friend").tag(1)
+                    Text("Borrowed").tag(1)
                     Text("Library").tag(2)
                 }
+                .pickerStyle(.segmented)
                 Picker("Format", selection: $readingMaterial.format){
                     Text("Physical").tag(0)
                     Text("E-book").tag(1)
                     Text("Audiobook").tag(2)
                 }
+                .pickerStyle(.segmented)
                 Picker("Type of reading", selection: $readingMaterial.typeOfReading){
                     Text("Leisure").tag(0)
                     Text("Book club").tag(1)
                     Text("Academic").tag(2)
                 }
+                .pickerStyle(.segmented)
                 Picker("Reading status", selection: $readingMaterial.readingStatus){
                     Text("TBR").tag(0)
                     Text("Reading").tag(1)
                     Text("Finished").tag(2)
                 }
+                .pickerStyle(.segmented)
+                .onChange(of: readingMaterial.readingStatus, {
+                    updateDate()
+                })
             } header: {
                 Button("Reading format"){
                     readingMaterial.isFormatExpanded.toggle()
@@ -96,6 +103,17 @@ struct EditReadingMaterialView: View {
             let note = Note(note: newNote)
             readingMaterial.notes.append(note)
             newNote = ""
+        }
+    }
+    
+    func updateDate(){
+        print("in updateDate")
+        switch readingMaterial.readingStatus{
+        case 0: break  // don't do anything
+        case 1:  readingMaterial.dateStarted = Date.now
+        case 2: readingMaterial.dateCompleted = Date.now
+        default:  // nothing needs to change
+            print("Something went wrong in updateDate function in Edit view")
         }
     }
     
