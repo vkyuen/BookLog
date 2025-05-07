@@ -16,10 +16,14 @@ struct ReadingMaterialListingView: View {
         List{
             ForEach(readingMaterials){readingMaterial in
                 NavigationLink(value: readingMaterial){
-                    VStack(alignment: .leading){
-                        Text(readingMaterial.title)
-                            .font(.headline)
-                        Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                        HStack{
+                            Image(systemName: getIcon(readingStatus: readingMaterial.readingStatus))
+                                .imageScale(.large)
+                            VStack(alignment: .leading){
+                                Text(readingMaterial.title)
+                                    .font(.headline)
+                                Text(readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
+                            }
                     }
                 }
             }
@@ -41,6 +45,23 @@ struct ReadingMaterialListingView: View {
         for index in indexSet {
             let readingMaterial = readingMaterials[index]
             modelContext.delete(readingMaterial)
+        }
+    }
+    func getIcon(readingStatus: Int) -> String{
+        switch readingStatus{
+        case 0: return "book.closed"
+        case 1: return "book"
+        case 2: return"books.vertical"
+        default: return "questionmark.circle"
+        }
+    }
+    func getDate(book: ReadingMaterial)
+    -> String{
+        switch book.readingStatus{
+        case 0: return "Added on: \(book.dateAdded)"
+        case 1: return "Started on: \(book.dateStarted)"
+        case 2: return"Finished on: \(book.dateCompleted)"
+        default: return "What am I doing here?"
         }
     }
 }

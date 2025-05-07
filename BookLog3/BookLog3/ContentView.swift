@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             MainBookView()
                 .tabItem{
-                    Label("Home", systemImage: "list.bullet")
+                    Label("Home", systemImage: "house")
                 }
         }
     }
