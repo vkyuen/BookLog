@@ -12,6 +12,7 @@ struct EditReadingMaterialView: View {
     @Bindable var readingMaterial: ReadingMaterial
     
     @State private var newNote = ""
+    @State private var isFormatExpanded = true
     
     var body: some View {
         Form{
@@ -19,10 +20,10 @@ struct EditReadingMaterialView: View {
                 TextField("Title", text: $readingMaterial.title)
                 TextField("Autor", text: $readingMaterial.author)
                 
-                Stepper("Current number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter)
+                Stepper("Number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter)
                 
             }
-            Section(header: Text("Reading format")){
+            Section(isExpanded: $isFormatExpanded){
                 Picker("Source", selection: $readingMaterial.source){
                     Text("Owned").tag(0)
                     Text("Borrowed from Friend").tag(1)
@@ -43,13 +44,16 @@ struct EditReadingMaterialView: View {
                     Text("Reading").tag(1)
                     Text("Finished").tag(2)
                 }
+            } header: {
+                Button("Reading format"){
+                    isFormatExpanded.toggle()
+                }
+                .buttonStyle(.plain)
             }
-            Section(header: Text("Dates")){
+            Section(header: Text("Dates and times")){
                 Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
-                DatePicker("Date started", selection: $readingMaterial.dateStarted)
-                DatePicker("Date finished", selection: $readingMaterial.dateCompleted)
-            }
-            Section(header: Text("Time")){
+                Text("Date started: " + readingMaterial.dateStarted.formatted(date: .long, time: .shortened))
+                Text("Date finished: " + readingMaterial.dateCompleted.formatted(date: .long, time: .shortened))
                 Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime)
             }
             Section("Notes"){
