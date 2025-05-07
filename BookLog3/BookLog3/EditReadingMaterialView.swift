@@ -40,11 +40,11 @@ struct EditReadingMaterialView: View {
                     Text("Audiobook").tag(2)
                 }
                 .pickerStyle(.segmented)
-                Picker("Type of reading", selection: $readingMaterial.typeOfReading){
-                    Text("Leisure").tag(0)
-                    Text("Book club").tag(1)
-                    Text("Academic").tag(2)
-                }
+//                Picker("Type of reading", selection: $readingMaterial.typeOfReading){
+//                    Text("Leisure").tag(0)
+//                    Text("Book club").tag(1)
+//                    Text("Academic").tag(2)
+//                }
                 .pickerStyle(.segmented)
                 Picker("Reading status", selection: $readingMaterial.readingStatus){
                     Text("TBR").tag(0)
