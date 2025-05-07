@@ -12,18 +12,22 @@ struct EditReadingMaterialView: View {
     @Bindable var readingMaterial: ReadingMaterial
     
     @State private var newNote = ""
-    @State private var isFormatExpanded = true
     
     var body: some View {
         Form{
-            Section(header: Text("Information")){
+            Section(isExpanded: $readingMaterial.isInfoExpanded){
                 TextField("Title", text: $readingMaterial.title)
                 TextField("Autor", text: $readingMaterial.author)
                 
                 Stepper("Number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter)
                 
+            } header: {
+                Button("Information"){
+                    readingMaterial.isInfoExpanded.toggle()
+                }
+                .buttonStyle(.plain)
             }
-            Section(isExpanded: $isFormatExpanded){
+            Section(isExpanded: $readingMaterial.isFormatExpanded){
                 Picker("Source", selection: $readingMaterial.source){
                     Text("Owned").tag(0)
                     Text("Borrowed from Friend").tag(1)
@@ -46,16 +50,25 @@ struct EditReadingMaterialView: View {
                 }
             } header: {
                 Button("Reading format"){
-                    isFormatExpanded.toggle()
+                    readingMaterial.isFormatExpanded.toggle()
                 }
                 .buttonStyle(.plain)
             }
-            Section(header: Text("Dates and times")){
+            Section(isExpanded: $readingMaterial.isDateExpanded){
                 Text("Date added: " + readingMaterial.dateAdded.formatted(date: .long, time: .shortened))
                 Text("Date started: " + readingMaterial.dateStarted.formatted(date: .long, time: .shortened))
                 Text("Date finished: " + readingMaterial.dateCompleted.formatted(date: .long, time: .shortened))
                 Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime)
+                if readingMaterial.readingStatus == 1{
+                    Stepper("Current chapter: \(readingMaterial.currentChapter)", value: $readingMaterial.currentChapter, in: 0...readingMaterial.numberOfChapter)
+                }
+            }header:{
+                Button("Dates and times"){
+                    readingMaterial.isDateExpanded.toggle()
+                }
+                .buttonStyle(.plain)
             }
+            
             Section("Notes"){
                 ForEach(readingMaterial.notes){ note in
                     Text(note.note)

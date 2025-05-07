@@ -22,6 +22,7 @@ class ReadingMaterial{
     var format: Int
     var typeOfReading: Int
     var readingStatus: Int
+    var currentChapter: Int
     @Relationship(deleteRule: .cascade) var notes = [Note]()
     
     // source: 0 = purchased, 1 = borrowed, 2 = library
@@ -33,7 +34,7 @@ class ReadingMaterial{
     var isFormatExpanded: Bool
     var isDateExpanded: Bool
     
-    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0, isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true) {
+    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0,currentChapter: Int = 0,  isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true) {
         self.title = title
         self.dateAdded = dateAdded
         self.author = author
@@ -44,6 +45,7 @@ class ReadingMaterial{
         self.wordCount = wordCount
         self.source = source
         self.format = format
+        self.currentChapter = currentChapter
         self.typeOfReading = typeOfReading
         self.readingStatus = readingStatus
         self.isInfoExpanded = isInfoExpanded
