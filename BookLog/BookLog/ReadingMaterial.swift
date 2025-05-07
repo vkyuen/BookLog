@@ -29,7 +29,11 @@ class ReadingMaterial{
     // typeOfReading: 0 = leisure, 1 = book club, 2 = academic
     // readingStatus: 0 = tbr, 1 = reading, 2 = done
     
-    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0) {
+    var isInfoExpanded: Bool
+    var isFormatExpanded: Bool
+    var isDateExpanded: Bool
+    
+    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0, isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true) {
         self.title = title
         self.dateAdded = dateAdded
         self.author = author
@@ -42,5 +46,8 @@ class ReadingMaterial{
         self.format = format
         self.typeOfReading = typeOfReading
         self.readingStatus = readingStatus
+        self.isInfoExpanded = isInfoExpanded
+        self.isFormatExpanded = isFormatExpanded
+        self.isDateExpanded = isDateExpanded
     }
 }
