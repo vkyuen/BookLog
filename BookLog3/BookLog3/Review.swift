@@ -14,6 +14,7 @@ class Review{
     var dateCreated: Date
     var rating: Int // staying with whole number stars for now
     var note: String
+    
     init(book: ReadingMaterial, dateCreated: Date = .now, rating: Int = 0, note: String = "") {
         self.book = book
         self.dateCreated = dateCreated

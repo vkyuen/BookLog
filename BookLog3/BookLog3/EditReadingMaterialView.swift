@@ -10,6 +10,7 @@ import SwiftData
 
 struct EditReadingMaterialView: View {
     @Bindable var readingMaterial: ReadingMaterial
+//    @Environment(\.modelContext) var modelContext
     
     @State private var newNote = ""
     
@@ -84,6 +85,7 @@ struct EditReadingMaterialView: View {
                 ForEach(readingMaterial.notes){ note in
                     Text(note.note)
                 }
+                .onDelete(perform: deleteNote)
                 HStack {
                     TextField("Add a note for \(readingMaterial.title)", text: $newNote)
                     Button("Add", action: addNote)
@@ -105,6 +107,14 @@ struct EditReadingMaterialView: View {
             newNote = ""
         }
     }
+    func deleteNote(_ indexSet: IndexSet){
+        for index in indexSet {
+            let note = readingMaterial.notes[index]
+            print(note.note)
+//            modelContext.delete(note)
+            
+        }
+    }
     
     func updateDate(){
         print("in updateDate")
@@ -120,13 +130,13 @@ struct EditReadingMaterialView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: ReadingMaterial.self, configurations: config)
-        let example = ReadingMaterial(title: "Example Book")
-        return EditReadingMaterialView(readingMaterial: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
+//    do {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: ReadingMaterial.self, configurations: config)
+//        let example = ReadingMaterial(title: "Example Book")
+//        return EditReadingMaterialView(readingMaterial: example)
+//            .modelContainer(container)
+//    } catch {
+//        fatalError("Failed to create model container.")
+//    }
 }
