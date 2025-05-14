@@ -154,7 +154,6 @@ struct EditReadingMaterialView: View {
 //    }
     
     func updateDate(){
-        print("in updateDate")
         switch readingMaterial.readingStatus{
         case 0: break  // don't do anything
         case 1:  readingMaterial.dateStarted = Date.now
