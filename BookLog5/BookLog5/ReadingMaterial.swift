@@ -1,8 +1,8 @@
 //
 //  ReadingMaterial.swift
-//  BookLog3
+//  BookLog5
 //
-//  Created by Veronica Yuen on 5/6/25.
+//  Created by Veronica Yuen on 5/13/25.
 //
 
 import Foundation

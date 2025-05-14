@@ -1,8 +1,8 @@
 //
 //  EditReadingMaterialView.swift
-//  BookLog3
+//  BookLog4
 //
-//  Created by Veronica Yuen on 5/6/25.
+//  Created by Veronica Yuen on 5/13/25.
 //
 
 import SwiftUI
@@ -94,18 +94,18 @@ struct EditReadingMaterialView: View {
                     }
                 }
             } // end section Notes
-//            Section("Reviews"){
-//                NavigationStack(){
-//                    ForEach(readingMaterial.reviews){ review in
-//                        Text(review.note)
-//                    }
-//                    .onDelete(perform: deleteReview)
-//                    HStack {
-//                        TextField("Add a Review for \(readingMaterial.title)", text: $newReview)
-//                        Button("Add", action: addNote)
-//                    }
-//                }
-//            }
+            Section("Reviews"){
+                NavigationStack(){
+                    ForEach(readingMaterial.reviews){ review in
+                        Text(review.note)
+                    }
+                    .onDelete(perform: deleteReview)
+                    HStack {
+                        TextField("Add a Review for \(readingMaterial.title)", text: $newReview)
+                        Button("Add", action: addNote)
+                    }
+                }
+            }
             
         }
         .navigationTitle(readingMaterial.title)
@@ -124,17 +124,17 @@ struct EditReadingMaterialView: View {
         }
     }
     
-//    func addReview(){
-//        guard newReview.isEmpty == false
-//        else{
-//            return
-//        }
-//        withAnimation{
-//            let review = Review(book: readingMaterial, note: newReview)
-//            readingMaterial.reviews.append(review)
-//            newReview = ""
-//        }
-//    }
+    func addReview(){
+        guard newReview.isEmpty == false
+        else{
+            return
+        }
+        withAnimation{
+            let review = Review(book: readingMaterial, note: newReview)
+            readingMaterial.reviews.append(review)
+            newReview = ""
+        }
+    }
     
     func deleteNote(_ indexSet: IndexSet){
         for index in indexSet {
@@ -145,14 +145,14 @@ struct EditReadingMaterialView: View {
         }
     }
     
-//    func deleteReview(_ indexSet: IndexSet){
-//        for index in indexSet {
-//            let note = readingMaterial.notes[index]
-//            print(note.note)
-////            modelContext.delete(note)
-//            
-//        }
-//    }
+    func deleteReview(_ indexSet: IndexSet){
+        for index in indexSet {
+            let note = readingMaterial.notes[index]
+            print(note.note)
+//            modelContext.delete(note)
+            
+        }
+    }
     
     func updateDate(){
         print("in updateDate")

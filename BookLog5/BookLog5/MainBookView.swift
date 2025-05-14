@@ -1,14 +1,14 @@
 //
-//  ReviewView.swift
-//  BookLog3
+//  MainBookView.swift
+//  BookLog5
 //
-//  Created by Veronica Yuen on 5/7/25.
+//  Created by Veronica Yuen on 5/13/25.
 //
 
 import SwiftUI
 import SwiftData
 
-struct ReviewView: View {
+struct MainBookView: View {
     @Query var readingMaterials: [ReadingMaterial]
     @Environment(\.modelContext) var modelContext
     

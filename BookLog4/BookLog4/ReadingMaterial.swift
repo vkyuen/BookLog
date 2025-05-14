@@ -1,8 +1,8 @@
 //
 //  ReadingMaterial.swift
-//  BookLog3
+//  BookLog4
 //
-//  Created by Veronica Yuen on 5/6/25.
+//  Created by Veronica Yuen on 5/13/25.
 //
 
 import Foundation
@@ -25,7 +25,7 @@ class ReadingMaterial{
     var readingStatus: Int
     var currentChapter: Int
     @Relationship(deleteRule: .cascade) var notes = [Note]()
-//    @Relationship(deleteRule: .cascade) var reviews = [Review]()
+    @Relationship(deleteRule: .cascade) var reviews = [Review]()
     
     // source: 0 = purchased, 1 = borrowed, 2 = library
     // format: 0 = physical, 1 = e-book, 2 = audiobook
