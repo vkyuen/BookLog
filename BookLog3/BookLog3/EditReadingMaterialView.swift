@@ -82,18 +82,16 @@ struct EditReadingMaterialView: View {
                 .buttonStyle(.plain)
             }
             
-//            Section("Notes"){
-//                NavigationStack(){
-//                    ForEach(readingMaterial.notes){ note in
-//                        Text(note.note)
-//                    }
-//                    .onDelete(perform: deleteNote)
-//                    HStack {
-//                        TextField("Add a note for \(readingMaterial.title)", text: $newNote)
-//                        Button("Add", action: addNote)
-//                    }
-//                }
-//            } // end section Notes
+            Section("Notes"){
+                    ForEach(readingMaterial.notes){ note in
+                        Text(note.note)
+                    }
+                    .onDelete(perform: deleteNote)
+                    HStack {
+                        TextField("Add a note for \(readingMaterial.title)", text: $newNote)
+                        Button("Add", action: addNote)
+                }
+            } // end section Notes
 //            Section("Reviews"){
 //                NavigationStack(){
 //                    ForEach(readingMaterial.reviews){ review in
@@ -140,6 +138,7 @@ struct EditReadingMaterialView: View {
         for index in indexSet {
             let note = readingMaterial.notes[index]
             print(note.note)
+            readingMaterial.notes.remove(at: index)
 //            modelContext.delete(note)
             
         }
