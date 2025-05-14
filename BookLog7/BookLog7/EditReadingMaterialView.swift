@@ -1,8 +1,8 @@
 //
 //  EditReadingMaterialView.swift
-//  BookLog3
+//  BookLog7
 //
-//  Created by Veronica Yuen on 5/6/25.
+//  Created by Veronica Yuen on 5/13/25.
 //
 
 import SwiftUI
@@ -82,30 +82,18 @@ struct EditReadingMaterialView: View {
                 .buttonStyle(.plain)
             }
             
-//            Section("Notes"){
-//                NavigationStack(){
-//                    ForEach(readingMaterial.notes){ note in
-//                        Text(note.note)
-//                    }
-//                    .onDelete(perform: deleteNote)
-//                    HStack {
-//                        TextField("Add a note for \(readingMaterial.title)", text: $newNote)
-//                        Button("Add", action: addNote)
-//                    }
-//                }
-//            } // end section Notes
-//            Section("Reviews"){
-//                NavigationStack(){
-//                    ForEach(readingMaterial.reviews){ review in
-//                        Text(review.note)
-//                    }
-//                    .onDelete(perform: deleteReview)
-//                    HStack {
-//                        TextField("Add a Review for \(readingMaterial.title)", text: $newReview)
-//                        Button("Add", action: addNote)
-//                    }
-//                }
-//            }
+            Section("Notes"){
+                NavigationStack(){
+                    ForEach(readingMaterial.notes){ note in
+                        Text(note.note)
+                    }
+                    .onDelete(perform: deleteNote)
+                    HStack {
+                        TextField("Add a note for \(readingMaterial.title)", text: $newNote)
+                        Button("Add", action: addNote)
+                    }
+                }
+            } // end section Notes
             
         }
         .navigationTitle(readingMaterial.title)
@@ -124,17 +112,6 @@ struct EditReadingMaterialView: View {
         }
     }
     
-//    func addReview(){
-//        guard newReview.isEmpty == false
-//        else{
-//            return
-//        }
-//        withAnimation{
-//            let review = Review(book: readingMaterial, note: newReview)
-//            readingMaterial.reviews.append(review)
-//            newReview = ""
-//        }
-//    }
     
     func deleteNote(_ indexSet: IndexSet){
         for index in indexSet {
@@ -145,14 +122,6 @@ struct EditReadingMaterialView: View {
         }
     }
     
-//    func deleteReview(_ indexSet: IndexSet){
-//        for index in indexSet {
-//            let note = readingMaterial.notes[index]
-//            print(note.note)
-////            modelContext.delete(note)
-//            
-//        }
-//    }
     
     func updateDate(){
         print("in updateDate")
@@ -165,16 +134,4 @@ struct EditReadingMaterialView: View {
         }
     }
     
-}
-
-#Preview {
-//    do {
-//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//        let container = try ModelContainer(for: ReadingMaterial.self, configurations: config)
-//        let example = ReadingMaterial(title: "Example Book")
-//        return EditReadingMaterialView(readingMaterial: example)
-//            .modelContainer(container)
-//    } catch {
-//        fatalError("Failed to create model container.")
-//    }
 }
