@@ -2,6 +2,8 @@ A simple reading app that started as so much more, but now this is what it is. T
 
 As of 2025-05-14, it is a basic reading tracker that lets users add notes as they read. In the edit view, there are some details that I will make a note to change or redo once I make some decisions. 
 
+2025-05-16 Starting to mess around with Booklog 4 to test the waters for the the timer method.  
+
 # Future features
 - A way to rate the book. I'm still unsure about a full-on review since I don't like ranking or reviewing things.
 - Automatic timer system/setup. I was overthinking this feature (especially regarding implementation) because I wanted something like this for my reading app.  Yes, it is often easy to see when a book started or finished, but it would be interesting to know how much reading time was spent on it.  For example, looking at the dates, it may have taken a month to read a book, but that was a hectic month, and you didn't have as much time to read. There is a stepper right now, so the user must keep track of their time and manually add it.
