@@ -16,6 +16,7 @@ class ReadingMaterial{
     var dateStarted: Date
     var dateCompleted: Date
     var sessionStart: Date
+    var isTimerActive: Bool
     var elapsedTime: Int
     var numberOfChapter: Int
     var wordCount: Int
@@ -35,14 +36,17 @@ class ReadingMaterial{
     var isInfoExpanded: Bool
     var isFormatExpanded: Bool
     var isDateExpanded: Bool
+    var isNoteExpanded: Bool
+    var isEventExpanded: Bool
     
-    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, sessionStart: Date = .now, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0,currentChapter: Int = 0,  isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true) {
+    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, sessionStart: Date = .now, isTimerActive: Bool = false, elapsedTime: Int = 0, numberOfChapter: Int = 0, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0,currentChapter: Int = 0,  isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true, isNoteExpanded: Bool = true, isEventExpanded: Bool = true) {
         self.title = title
         self.dateAdded = dateAdded
         self.author = author
         self.dateStarted = dateStarted
         self.dateCompleted = dateCompleted
         self.sessionStart = sessionStart
+        self.isTimerActive = isTimerActive
         self.elapsedTime = elapsedTime
         self.numberOfChapter = numberOfChapter
         self.wordCount = wordCount
@@ -54,6 +58,8 @@ class ReadingMaterial{
         self.isInfoExpanded = isInfoExpanded
         self.isFormatExpanded = isFormatExpanded
         self.isDateExpanded = isDateExpanded
+        self.isNoteExpanded = isNoteExpanded
+        self.isEventExpanded = isEventExpanded
     }
 }
 
