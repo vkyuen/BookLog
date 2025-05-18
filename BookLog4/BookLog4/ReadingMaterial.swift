@@ -26,6 +26,7 @@ class ReadingMaterial{
     var readingStatus: Int
     var currentChapter: Int
     @Relationship(deleteRule: .cascade) var notes = [Note]()
+    @Relationship(deleteRule: .cascade) var event = [Event]()
 //    @Relationship(deleteRule: .cascade) var reviews = [Review]()
     
     // source: 0 = purchased, 1 = borrowed, 2 = library

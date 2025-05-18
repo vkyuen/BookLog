@@ -16,14 +16,18 @@ struct ReadingMaterialListingView: View {
         List{
             ForEach(readingMaterials){readingMaterial in
                 NavigationLink(value: readingMaterial){
-                        HStack{
-                            Image(systemName: getIcon(readingStatus: readingMaterial.readingStatus))
-                                .imageScale(.large)
-                            VStack(alignment: .leading){
-                                Text(readingMaterial.title)
-                                    .font(.headline)
-                                Text(getDate(book: readingMaterial))
-                            }
+                    HStack{
+                        Image(systemName: getIcon(readingStatus: readingMaterial.readingStatus))
+                            .imageScale(.large)
+                        VStack(alignment: .leading){
+                            Text(readingMaterial.title)
+                                .font(.headline)
+                            Text(getDate(book: readingMaterial))
+                        }
+                        if readingMaterial.readingStatus == 2{
+                            Spacer()
+                            Image(systemName: "chevron.compact.down")
+                        }
                     }
                 }
             }

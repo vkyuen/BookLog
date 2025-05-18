@@ -24,7 +24,7 @@ struct EditReadingMaterialView: View {
                 Stepper("Number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter)
                 
             } header: {
-                Button("Information"){
+                Button("Information", systemImage: getArrow(isExpanded: readingMaterial.isInfoExpanded)){
                     readingMaterial.isInfoExpanded.toggle()
                 }
                 .buttonStyle(.plain)
@@ -58,7 +58,7 @@ struct EditReadingMaterialView: View {
                     updateDate()
                 })
             } header: {
-                Button("Reading format"){
+                Button("Reading format", systemImage: getArrow(isExpanded: readingMaterial.isFormatExpanded)){
                     readingMaterial.isFormatExpanded.toggle()
                 }
                 .buttonStyle(.plain)
@@ -76,13 +76,13 @@ struct EditReadingMaterialView: View {
                     Stepper("Current chapter: \(readingMaterial.currentChapter)", value: $readingMaterial.currentChapter, in: 0...readingMaterial.numberOfChapter)
                 }
             }header:{
-                Button("Dates and times"){
+                Button("Dates and times", systemImage: getArrow(isExpanded: readingMaterial.isDateExpanded)){
                     readingMaterial.isDateExpanded.toggle()
                 }
                 .buttonStyle(.plain)
             }
             
-            Section("Notes"){
+            Section(isExpanded: $readingMaterial.isNoteExpanded){
                     ForEach(readingMaterial.notes){ note in
                         Text(note.note)
                     }
@@ -91,7 +91,21 @@ struct EditReadingMaterialView: View {
                         TextField("Add a note for \(readingMaterial.title)", text: $newNote)
                         Button("Add", action: addNote)
                 }
-            } // end section Notes
+            } header:{
+                Button("Notes", systemImage: getArrow(isExpanded: readingMaterial.isNoteExpanded)){
+                    readingMaterial.isNoteExpanded.toggle()
+                }
+                .buttonStyle(.plain)
+            }// end section Notes
+            
+            Section(isExpanded: $readingMaterial.isEventExpanded){
+                //?
+            }header:{
+                Button("Events", systemImage: getArrow(isExpanded: readingMaterial.isEventExpanded)){
+                    readingMaterial.isEventExpanded.toggle()
+                }
+                .buttonStyle(.plain)
+            }
 //            Section("Reviews"){
 //                NavigationStack(){
 //                    ForEach(readingMaterial.reviews){ review in
@@ -160,6 +174,14 @@ struct EditReadingMaterialView: View {
         case 2: readingMaterial.dateCompleted = Date.now
         default:  // nothing needs to change
             print("Something went wrong in updateDate function in Edit view")
+        }
+    }
+    
+    func getArrow(isExpanded: Bool) -> String{
+        if isExpanded{
+            return "chevron.compact.up"
+        }else{
+            return "chevron.compact.down"
         }
     }
     
