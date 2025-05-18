@@ -24,9 +24,8 @@ struct ReadingMaterialListingView: View {
                                 .font(.headline)
                             Text(getDate(book: readingMaterial))
                         }
-                        if readingMaterial.readingStatus == 2{
-                            Spacer()
-                            Image(systemName: "chevron.compact.down")
+                        if readingMaterial.readingStatus == 1{
+                            Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
                         }
                     }
                 }
@@ -66,6 +65,13 @@ struct ReadingMaterialListingView: View {
         case 1: return "Started on: \(book.dateStarted.formatted(date: .numeric, time: .shortened))"
         case 2: return"Finished on: \(book.dateCompleted.formatted(date: .numeric, time: .shortened))"
         default: return "What am I doing here?"
+        }
+    }
+    func getTimerIcon(isTimerActive: Bool) -> String{
+        if isTimerActive{
+            return "stop.circle"
+        }else{
+            return "play.circle"
         }
     }
 }
