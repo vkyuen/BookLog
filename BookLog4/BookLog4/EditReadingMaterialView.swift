@@ -21,7 +21,7 @@ struct EditReadingMaterialView: View {
                 TextField("Title", text: $readingMaterial.title)
                 TextField("Autor", text: $readingMaterial.author)
                 
-                Stepper("Number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter)
+                Stepper("Number of Chapters: \(readingMaterial.numberOfChapter)", value: $readingMaterial.numberOfChapter, in: 1...500)
                 
             } header: {
                 Button("Information", systemImage: getArrow(isExpanded: readingMaterial.isInfoExpanded)){
@@ -71,7 +71,7 @@ struct EditReadingMaterialView: View {
                 if readingMaterial.readingStatus >= 2{
                     Text("Date finished: " + readingMaterial.dateCompleted.formatted(date: .long, time: .shortened))
                 }
-                Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime)
+                Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime, in: 0...2000000)
                 if readingMaterial.readingStatus == 1{
                     Stepper("Current chapter: \(readingMaterial.currentChapter)", value: $readingMaterial.currentChapter, in: 0...readingMaterial.numberOfChapter)
                 }
