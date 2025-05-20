@@ -25,7 +25,13 @@ struct ReadingMaterialListingView: View {
                             Text(getDate(book: readingMaterial))
                         }
                         if readingMaterial.readingStatus == 1{
-                            Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
+                            Spacer()
+                            Button{
+                                print("clicked")
+                            }label:{
+                                Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
+                                    .imageScale(.large)
+                            }
                         }
                     }
                 }

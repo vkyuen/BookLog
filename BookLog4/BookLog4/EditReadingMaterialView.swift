@@ -151,9 +151,7 @@ struct EditReadingMaterialView: View {
     func deleteNote(_ indexSet: IndexSet){
         for index in indexSet {
             let note = readingMaterial.notes[index]
-//            print(note.note)
             readingMaterial.notes.remove(at: index)
-//            modelContext.delete(note)
             
         }
     }
@@ -169,9 +167,8 @@ struct EditReadingMaterialView: View {
     
     func deleteEvent(_ indexSet: IndexSet){
         for index in indexSet {
-            let note = readingMaterial.event[index]
+            let event = readingMaterial.event[index]
             readingMaterial.event.remove(at: index)
-//            modelContext.delete(note)
             
         }
     }
