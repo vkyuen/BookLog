@@ -25,13 +25,15 @@ struct ReadingMaterialListingView: View {
                             if readingMaterial.readingStatus != 1{
                                 Text(getDate(book: readingMaterial))
                             }else{
-                                ProgressView(value: (getPercentage(readingMaterial: ReadingMaterial)))
-                                Spacer()
-                                Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
-                                    .imageScale(.large)
-                                    .onTapGesture {
-                                        timerButton(readingMaterial: readingMaterial)
-                                    }
+                                HStack{
+                                    Text("Finished chapter \(readingMaterial.currentChapter) of \(readingMaterial.numberOfChapter)")
+                                    Spacer()
+                                    Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
+                                        .imageScale(.large)
+                                        .onTapGesture {
+                                            timerButton(readingMaterial: readingMaterial)
+                                        }
+                                }
                             }
                         }
                     }
@@ -96,9 +98,6 @@ struct ReadingMaterialListingView: View {
             readingMaterial.sessionStart = .now
             readingMaterial.isTimerActive = true
         }
-    }
-    func getPercentage(readingMaterial: ReadingMaterial) -> Double{
-        return readingMaterial.curr
     }
 }
 
