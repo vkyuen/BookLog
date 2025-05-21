@@ -84,16 +84,22 @@ struct ReadingMaterialListingView: View {
         }
     }
     func timerButton(readingMaterial: ReadingMaterial){
+        print("in timer buton")
         // look at the timer status
         // if timer is active,then timer needs to end, add an event object
         // if timer is not active, make a note of the time, and change the status.
         if readingMaterial.isTimerActive{
+            print ("timer is active")
             // end timer, do the math.
             let time = Date().timeIntervalSince(readingMaterial.sessionStart)
-            print(time)
-            print(type(of: time))
+            print("timer ran for: \(time)")
+            print("Session start: \(readingMaterial.sessionStart)")
+            print("Session end: \(Date.now)")
+            let newEvent = Event(dateStarted: readingMaterial.sessionStart, dateEnded: Date.now, timeInterval: time, readingMaterial: readingMaterial)
+            readingMaterial.event.append(newEvent)
             readingMaterial.isTimerActive = false
         }else{
+            print("timer was not active")
             // timer was not active, update start time, and change boolean
             readingMaterial.sessionStart = .now
             readingMaterial.isTimerActive = true
