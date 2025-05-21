@@ -71,7 +71,10 @@ struct EditReadingMaterialView: View {
                 if readingMaterial.readingStatus >= 2{
                     Text("Date finished: " + readingMaterial.dateCompleted.formatted(date: .long, time: .shortened))
                 }
-                Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime, in: 0...2000000)
+                
+                
+                Stepper("Elasped time: \(readingMaterial.elapsedTime)", value: $readingMaterial.elapsedTime, in: 0...2000000, step: 60)
+                
                 if readingMaterial.readingStatus == 1{
                     Stepper("Current chapter: \(readingMaterial.currentChapter)", value: $readingMaterial.currentChapter, in: 0...readingMaterial.numberOfChapter)
                 }
@@ -150,7 +153,7 @@ struct EditReadingMaterialView: View {
     
     func deleteNote(_ indexSet: IndexSet){
         for index in indexSet {
-            let note = readingMaterial.notes[index]
+            // let note = readingMaterial.notes[index]
             readingMaterial.notes.remove(at: index)
             
         }
@@ -167,7 +170,7 @@ struct EditReadingMaterialView: View {
     
     func deleteEvent(_ indexSet: IndexSet){
         for index in indexSet {
-            let event = readingMaterial.event[index]
+//            let event = readingMaterial.event[index]
             readingMaterial.event.remove(at: index)
             
         }
