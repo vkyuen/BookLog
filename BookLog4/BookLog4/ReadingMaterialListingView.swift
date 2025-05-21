@@ -26,12 +26,11 @@ struct ReadingMaterialListingView: View {
                         }
                         if readingMaterial.readingStatus == 1{
                             Spacer()
-                            Button{
-                                print("clicked")
-                            }label:{
-                                Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
-                                    .imageScale(.large)
-                            }
+                            Image(systemName: getTimerIcon(isTimerActive: readingMaterial.isTimerActive))
+                                .imageScale(.large)
+                                .onTapGesture {
+                                    timerButton(readingMaterial: readingMaterial)
+                                }
                         }
                     }
                 }
@@ -78,6 +77,22 @@ struct ReadingMaterialListingView: View {
             return "stop.circle"
         }else{
             return "play.circle"
+        }
+    }
+    func timerButton(readingMaterial: ReadingMaterial){
+        // look at the timer status
+        // if timer is active,then timer needs to end, add an event object
+        // if timer is not active, make a note of the time, and change the status.
+        if readingMaterial.isTimerActive{
+            // end timer, do the math.
+            let time = Date().timeIntervalSince(readingMaterial.sessionStart)
+            print(time)
+            print(type(of: time))
+            readingMaterial.isTimerActive = false
+        }else{
+            // timer was not active, update start time, and change boolean
+            readingMaterial.sessionStart = .now
+            readingMaterial.isTimerActive = true
         }
     }
 }

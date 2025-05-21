@@ -12,10 +12,10 @@ import SwiftData
 class Event{
     var dateStarted: Date
     var dateEnded: Date
-    var timeInterval: Int
+    var timeInterval: Double
     var readingMaterial: ReadingMaterial
     
-    init(dateStarted: Date, dateEnded: Date, timeInterval: Int, readingMaterial: ReadingMaterial) {
+    init(dateStarted: Date = .now, dateEnded: Date, timeInterval: Double = 0, readingMaterial: ReadingMaterial) {
         self.dateStarted = dateStarted
         self.dateEnded = dateEnded
         self.timeInterval = timeInterval
