@@ -17,7 +17,7 @@ class ReadingMaterial{
     var dateCompleted: Date
     var sessionStart: Date
     var isTimerActive: Bool
-    var elapsedTime: Int
+    var elapsedTime: Double
     var numberOfChapter: Int
     var wordCount: Int
     var source: Int
@@ -40,7 +40,7 @@ class ReadingMaterial{
     var isNoteExpanded: Bool
     var isEventExpanded: Bool
     
-    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, sessionStart: Date = .now, isTimerActive: Bool = false, elapsedTime: Int = 0, numberOfChapter: Int = 1, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0,currentChapter: Int = 0,  isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true, isNoteExpanded: Bool = true, isEventExpanded: Bool = true) {
+    init(title: String = "", dateAdded: Date = .now, author: String = "", dateStarted: Date = .now, dateCompleted: Date = .now, sessionStart: Date = .now, isTimerActive: Bool = false, elapsedTime: Double = 0, numberOfChapter: Int = 1, wordCount: Int = 0, source: Int = 0, format: Int = 0, typeOfReading: Int = 0, readingStatus: Int = 0,currentChapter: Int = 0,  isInfoExpanded: Bool = true, isFormatExpanded: Bool = true, isDateExpanded: Bool = true, isNoteExpanded: Bool = true, isEventExpanded: Bool = true) {
         self.title = title
         self.dateAdded = dateAdded
         self.author = author

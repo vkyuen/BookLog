@@ -133,7 +133,7 @@ struct EditReadingMaterialView: View {
             return
         }
         withAnimation{
-            let note = Note(note: newNote)
+            let note = Note(note: newNote, readingMaterial: readingMaterial)
             readingMaterial.notes.append(note)
             newNote = ""
         }

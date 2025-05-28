@@ -12,9 +12,11 @@ import SwiftData
 class Note{
     var note: String
     var dateCreated: Date
+    var readingMaterial: ReadingMaterial
     
-    init(note: String, dateCreated: Date = .now) {
+    init(note: String, dateCreated: Date = .now, readingMaterial: ReadingMaterial) {
         self.note = note
         self.dateCreated = dateCreated
+        self.readingMaterial = readingMaterial
     }
 }
